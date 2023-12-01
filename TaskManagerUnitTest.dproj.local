@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/08/30 09:25:00.000.119,=C:\Users\roni.silveira\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/12/01 13:44:25.085,=C:\Users\roni.silveira\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/12/01 13:45:05.103,C:\Users\roni.silveira\Documents\autpas\TaskManager\TaskManager.Task.UseCase.Insert.UnitTest.pas=C:\Users\roni.silveira\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/12/01 13:45:26.127,C:\Users\roni.silveira\Documents\autpas\TaskManager\TaslManagerUnitTest.dproj=C:\Users\roni.silveira\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/12/01 13:46:50.284,C:\Users\roni.silveira\Documents\autpas\TaskManager\TaskManagerUnitTest.dproj=C:\Users\roni.silveira\Documents\autpas\TaskManager\TaslManagerUnitTest.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
