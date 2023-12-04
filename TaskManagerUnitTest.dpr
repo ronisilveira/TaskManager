@@ -11,7 +11,9 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  TaskManager.Task.UseCase.Insert.UnitTest in 'TaskManager.Task.UseCase.Insert.UnitTest.pas';
+  TaskManager.Task.UseCase.Insert.UnitTest in 'TaskManager.Task.UseCase.Insert.UnitTest.pas',
+  TaskManager.Task.Entity in 'TaskManager.Task.Entity.pas',
+  TaskManager.Task.UseCase.Insert in 'TaskManager.Task.UseCase.Insert.pas';
 
 var
   runner : ITestRunner;
