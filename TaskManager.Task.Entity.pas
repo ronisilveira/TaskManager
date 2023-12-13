@@ -3,7 +3,7 @@ unit TaskManager.Task.Entity;
 interface
 
 type
-  Task = class
+  TTask = class
   private
     FDescription: String;
   public

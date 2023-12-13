@@ -2,46 +2,88 @@ unit TaskManager.Task.UseCase.Insert;
 
 interface
 
+uses
+  TaskManager.Task.Entity;
+
 type
-  InsertTaskRequest = class
+  TInsertTaskRequest = class
   public
     Description: String;
     constructor Create(Description: String);
   end;
 
-  InsertTaskResponse = class
-
-  end;
-
-  InsertTaskOutputPort = interface
-
-  end;
-
-  InsertTaskInputPort = interface
-    procedure Call(Request: InsertTaskRequest; Output: InsertTaskOutputPort);
-  end;
-
-  InsertTaskInteractor = class(TInterfacedObject, InsertTaskInputPort)
+  TInsertTaskResponse = class
   public
-    procedure Call(Request: InsertTaskRequest; Output: InsertTaskOutputPort);
+    Message: String;
+    constructor Create(Message: String);
+  end;
+
+  {$M+}
+  IInsertTaskOutputPort = interface
+    procedure showResult(response: TInsertTaskResponse);
+  end;
+  {$M-}
+
+  IInsertTaskInputPort = interface
+    procedure Execute(Request: TInsertTaskRequest; Output: IInsertTaskOutputPort);
+  end;
+
+  {$M+}
+  ITaskRepository = interface
+    procedure insert(Task: TTask);
+  end;
+  {$M-}
+
+  TInsertTaskInteractor = class(TInterfacedObject, IInsertTaskInputPort)
+  private
+    FTaskRepository: ITaskRepository;
+  public
+    constructor Create(TaskRepository: ITaskRepository);
+    procedure Execute(Request: TInsertTaskRequest; Output: IInsertTaskOutputPort);
   end;
 
 implementation
 
-{ InsertTaskRequest }
+{ TInsertTaskRequest }
 
-constructor InsertTaskRequest.Create(Description: String);
+constructor TInsertTaskRequest.Create(Description: String);
 begin
   Self.Description := Description;
 end;
 
-{ InsertTaskInteractor }
+{ TInsertTaskResponse }
 
-procedure InsertTaskInteractor.Call(Request: InsertTaskRequest;
-  Output: InsertTaskOutputPort);
+constructor TInsertTaskResponse.Create(Message: String);
+begin
+  Self.Message := Message;
+end;
+
+{ TInsertTaskInteractor }
+
+constructor TInsertTaskInteractor.Create(TaskRepository: ITaskRepository);
+begin
+  FTaskRepository := TaskRepository;
+end;
+
+procedure TInsertTaskInteractor.Execute(Request: TInsertTaskRequest;
+  Output: IInsertTaskOutputPort);
+var
+  Task: TTask;
 begin
   inherited;
 
+  if Request.Description = '' then
+  begin
+    Output.showResult(TInsertTaskResponse.Create('O preenchimento da descrição é obrigatório'));
+    Exit;
+  end;
+
+  Task := TTask.Create;
+  Task.Description := Request.Description;
+
+  FTaskRepository.insert(Task);
+
+  Output.showResult(TInsertTaskResponse.Create('Tarefa inserida com sucesso!'));
 end;
 
 end.
