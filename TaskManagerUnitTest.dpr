@@ -13,7 +13,23 @@ uses
   DUnitX.TestFramework,
   TaskManager.Task.UseCase.Insert.UnitTest in 'TaskManager.Task.UseCase.Insert.UnitTest.pas',
   TaskManager.Task.Entity in 'TaskManager.Task.Entity.pas',
-  TaskManager.Task.UseCase.Insert in 'TaskManager.Task.UseCase.Insert.pas';
+  TaskManager.Task.UseCase.Insert in 'TaskManager.Task.UseCase.Insert.pas',
+  Delphi.Mocks.AutoMock in 'DelphiMocks\Delphi.Mocks.AutoMock.pas',
+  Delphi.Mocks.Behavior in 'DelphiMocks\Delphi.Mocks.Behavior.pas',
+  Delphi.Mocks.Expectation in 'DelphiMocks\Delphi.Mocks.Expectation.pas',
+  Delphi.Mocks.Helpers in 'DelphiMocks\Delphi.Mocks.Helpers.pas',
+  Delphi.Mocks.Interfaces in 'DelphiMocks\Delphi.Mocks.Interfaces.pas',
+  Delphi.Mocks.MethodData in 'DelphiMocks\Delphi.Mocks.MethodData.pas',
+  Delphi.Mocks.ObjectProxy in 'DelphiMocks\Delphi.Mocks.ObjectProxy.pas',
+  Delphi.Mocks.ParamMatcher in 'DelphiMocks\Delphi.Mocks.ParamMatcher.pas',
+  Delphi.Mocks in 'DelphiMocks\Delphi.Mocks.pas',
+  Delphi.Mocks.Proxy in 'DelphiMocks\Delphi.Mocks.Proxy.pas',
+  Delphi.Mocks.Proxy.TypeInfo in 'DelphiMocks\Delphi.Mocks.Proxy.TypeInfo.pas',
+  Delphi.Mocks.ReturnTypePatch in 'DelphiMocks\Delphi.Mocks.ReturnTypePatch.pas',
+  Delphi.Mocks.Utils in 'DelphiMocks\Delphi.Mocks.Utils.pas',
+  Delphi.Mocks.Validation in 'DelphiMocks\Delphi.Mocks.Validation.pas',
+  Delphi.Mocks.WeakReference in 'DelphiMocks\Delphi.Mocks.WeakReference.pas',
+  Delphi.Mocks.When in 'DelphiMocks\Delphi.Mocks.When.pas';
 
 var
   runner : ITestRunner;

@@ -49,6 +49,7 @@ var
 begin
   ExpectedTask := TTask.Create;
   ExpectedTask.Description := 'Any description';
+  ExpectedTask.Status := Pending;
   TaskRepositoryMock.Setup.Expect.AtLeastOnce.When.insert(It0.AreSamePropertiesThat<TTask>(ExpectedTask));
 
   ExpectedResponse := TInsertTaskResponse.Create('Tarefa inserida com sucesso!');

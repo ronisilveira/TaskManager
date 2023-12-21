@@ -80,6 +80,7 @@ begin
 
   Task := TTask.Create;
   Task.Description := Request.Description;
+  Task.Status := Pending;
 
   FTaskRepository.insert(Task);
 
