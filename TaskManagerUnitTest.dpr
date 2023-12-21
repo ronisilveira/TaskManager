@@ -29,7 +29,9 @@ uses
   Delphi.Mocks.Utils in 'DelphiMocks\Delphi.Mocks.Utils.pas',
   Delphi.Mocks.Validation in 'DelphiMocks\Delphi.Mocks.Validation.pas',
   Delphi.Mocks.WeakReference in 'DelphiMocks\Delphi.Mocks.WeakReference.pas',
-  Delphi.Mocks.When in 'DelphiMocks\Delphi.Mocks.When.pas';
+  Delphi.Mocks.When in 'DelphiMocks\Delphi.Mocks.When.pas',
+  TaskManager.Task.UseCase.List in 'TaskManager.Task.UseCase.List.pas',
+  TaskManager.Task.UseCase.Shared in 'TaskManager.Task.UseCase.Shared.pas';
 
 var
   runner : ITestRunner;

@@ -3,7 +3,7 @@ unit TaskManager.Task.UseCase.Insert.UnitTest;
 interface
 uses
   DUnitX.TestFramework, Delphi.Mocks, TaskManager.Task.UseCase.Insert,
-  TaskManager.Task.Entity;
+  TaskManager.Task.Entity, TaskManager.Task.UseCase.Shared;
 
 type
 
@@ -50,10 +50,10 @@ begin
   ExpectedTask := TTask.Create;
   ExpectedTask.Description := 'Any description';
   ExpectedTask.Status := Pending;
-  TaskRepositoryMock.Setup.Expect.AtLeastOnce.When.insert(It0.AreSamePropertiesThat<TTask>(ExpectedTask));
+  TaskRepositoryMock.Setup.Expect.AtLeastOnce.When.Insert(It0.AreSamePropertiesThat<TTask>(ExpectedTask));
 
   ExpectedResponse := TInsertTaskResponse.Create('Tarefa inserida com sucesso!');
-  InsertTaskOutputPortMock.Setup.Expect.AtLeastOnce.When.showResult(It0.AreSameFieldsThat<TInsertTaskResponse>(ExpectedResponse));
+  InsertTaskOutputPortMock.Setup.Expect.AtLeastOnce.When.ShowResult(It0.AreSameFieldsThat<TInsertTaskResponse>(ExpectedResponse));
 
   InsertTaskUseCase.Execute(TInsertTaskRequest.Create('Any description'), InsertTaskOutputPortMock.Instance);
 
@@ -65,10 +65,10 @@ procedure InsertTaskTest.ErrorOnInsertTask;
 var
   ExpectedResponse: TInsertTaskResponse;
 begin
-  TaskRepositoryMock.Setup.Expect.Never.When.insert(It0.IsNotNil<TTask>);
+  TaskRepositoryMock.Setup.Expect.Never.When.Insert(It0.IsNotNil<TTask>);
 
   ExpectedResponse := TInsertTaskResponse.Create('O preenchimento da descrição é obrigatório');
-  InsertTaskOutputPortMock.Setup.Expect.AtLeastOnce.When.showResult(It0.AreSameFieldsThat<TInsertTaskResponse>(ExpectedResponse));
+  InsertTaskOutputPortMock.Setup.Expect.AtLeastOnce.When.ShowResult(It0.AreSameFieldsThat<TInsertTaskResponse>(ExpectedResponse));
 
   InsertTaskUseCase.Execute(TInsertTaskRequest.Create(''), InsertTaskOutputPortMock.Instance);
 

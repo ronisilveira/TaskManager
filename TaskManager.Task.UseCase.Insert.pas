@@ -3,7 +3,7 @@ unit TaskManager.Task.UseCase.Insert;
 interface
 
 uses
-  TaskManager.Task.Entity;
+  TaskManager.Task.Entity, TaskManager.Task.UseCase.Shared;
 
 type
   TInsertTaskRequest = class
@@ -20,19 +20,13 @@ type
 
   {$M+}
   IInsertTaskOutputPort = interface
-    procedure showResult(response: TInsertTaskResponse);
+    procedure ShowResult(response: TInsertTaskResponse);
   end;
   {$M-}
 
   IInsertTaskInputPort = interface
     procedure Execute(Request: TInsertTaskRequest; Output: IInsertTaskOutputPort);
   end;
-
-  {$M+}
-  ITaskRepository = interface
-    procedure insert(Task: TTask);
-  end;
-  {$M-}
 
   TInsertTaskInteractor = class(TInterfacedObject, IInsertTaskInputPort)
   private
@@ -82,9 +76,9 @@ begin
   Task.Description := Request.Description;
   Task.Status := Pending;
 
-  FTaskRepository.insert(Task);
+  FTaskRepository.Insert(Task);
 
-  Output.showResult(TInsertTaskResponse.Create('Tarefa inserida com sucesso!'));
+  Output.ShowResult(TInsertTaskResponse.Create('Tarefa inserida com sucesso!'));
 end;
 
 end.
